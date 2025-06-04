@@ -1,45 +1,182 @@
 <!DOCTYPE html>
-<html>
-<head>
-<meta charset="utf-8">
-<title>Khoi Tran</title>
-</head>
-<body>
-<div id="container-wrapper">
-<div id="top">
-    <h1>KHOI TRAN MINH</h1>
-    <h2>CINCINNATI, OHIO - (513) 258-1542</h2>
-    <div id="email" onclick="showhideEmail()">Show my email</div>
-    <script>
-        var shown = false;
-function showhideEmail() {
-    if(shown){
-        document.getElementById('email').innerHTML="Show my email";
-        shown=false;
-    }else{
-        var myemail = "<a href='mailto:tran2ki"+"@"+"mail.uc.edu' > tran2ki"+"@"+"mail.uc.edu</a>";
-        document.getElementById('email').innerHTML=myemail;
-        shown=true;
-    }
-}
-    </script>
-</div>
-<div id="wrapper">
-<div id="menubar">
-    <h3>Student: Khoi Tran</h3>
-    <img src="/images/Actual 150x150 headshot.png" alt="My headshot" width="50">
-</div>
-<div id="main">
-    <p>A simple HTML page</p>
-    Using the <a href="https://www.w3schools.com/html">W3Schools template</a>
-</div>
-<div id="class-info">
-    <h3>Labs</h3>
-    <h4>Lab 1:</h4>
-    <h3>Projects</h3>
-    <h3>Hackathons</h3>
-</div>
-</div>
-</div>
-</body>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Khoi Tran</title>
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="css/styles.css" rel="stylesheet" />
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js" 
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" 
+        crossorigin="anonymous"></script>
+    </head>
+    <body id="page-top">
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+            <div class="container">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    Menu
+                    <i class="fas fa-bars ms-1"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
+                        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#education">Education</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#addtasks">Additional Tasks</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Masthead-->
+        <header class="masthead">
+            <div class="container">
+                <div class="masthead-subheading">Welcome To My Page!</div>
+                <a class="btn btn-primary btn-xl text-uppercase" href="#about">Tell Me More</a>
+            </div>
+        </header>
+        <!-- Services-->
+        <section class="page-section" id="about">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase">About</h2>
+                    <p class="section-subheading text-muted" id="email" onclick="showhideEmail()">Show my email (click)</p>
+                    <p class="section-subheading text-muted">Phone: (513) 258-1542</p>
+                    <img src="images/Actual 150x150 headshot.png" alt="My headshot">
+                    <h3 class="section-subheading text-bold" style="font-size:large;">Hello! My name is Khoi Tran, a result-driven and dedicated undergraduate
+                        exploring opportunities in the field of computer science. I am currently pursuing a Bachelor's degree
+                        in Computer Science at the University of Houston, where I've developed an mindset for experimentation
+                        and problem-solving. With a foundation in various programming languages such as Python, C++ and Java,
+                        I am eager to apply my skills in real-world projects and contribute to innovative solutions. If you're looking for
+                        a motivated and flexible individual to join your team, I would love to connect and discuss how I can assist in creating
+                        impactful solutions!
+                    </h3>
+                    <h3 class="section-heading text-uppercase" style="text-align:center">
+                    A programming joke for the day:</h3>
+                    <div id="jokeoftheday"></div>
+                </div>
+            </div>
+                <script>
+                    $.get("https://v2.jokeapi.dev/joke/Programming?type=single",function(result) {
+                    // console.log("From jokeAPI: "+JSON.stringify(result));
+                    $("#jokeoftheday").text("A programming joke for the day: " + result.joke)
+                });
+                var shown = false;
+                function showhideEmail() {
+                    if(shown){
+                        document.getElementById('email').innerHTML="Show my email";
+                        shown=false;
+                    }else{
+                        var myemail = "<a href='mailto:tran2ki"+"@"+"mail.uc.edu' > tran2ki"+"@"+"mail.uc.edu</a>";
+                        document.getElementById('email').innerHTML=myemail;
+                        shown=true;
+                    }
+                }
+                </script>
+        </section>
+        <!-- Experience-->
+        <section class="page-section bg-light" id="experience">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase">Experience</h2>
+                    <h3 class="section-subheading text-muted"></h3>
+                </div>
+                <div class="row text-center">
+                    <div class="col-md-6">
+                        <h4 class="my-3">Intern, OpenWay</h4>
+                        <h5 class="text-muted">May 2024-August 2024</h5>
+                        <p class="text-muted">Conducted comparative analysis of Vietnamese and US digital payment ecosystems, identifying key similarities, differences, and vulnerabilities.
+                            Developed actionable insights and proposed strategic solutions to address identified issues.
+                            Utilized analytical methodologies to evaluate market trends and potential risks, demonstrating a strong understanding of financial technology.</p>
+                    </div>
+                    <div class="col-md-6">
+                        <h4 class="my-3">Assistant Researcher</h4>
+                        <h5 class="text-muted">February 2025-March 2025</h5>
+                        <p class="text-muted">Assisting in the research and the development of a program detecting malware within C++ code and producing a documented manual for the program’s usage.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Skills-->
+        <section class="page-section" id="skills">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase">Skills</h2>
+                    <p class="section-subheading text-muted">Programming: LabVIEW, Python, C++, MATLAB, LC3</p>
+                    <p class="section-subheading text-muted">Software: Microsoft PowerPoint, Microsoft Word, Microsoft Outlook, Google Document, Google Spreadsheets, Google Slides, Visual Studio</p>
+                    <p class="section-subheading text-muted">Operating Systems: Windows 11, macOS Sonoma 14.2.1</p>
+                </div>
+            </div>
+        </section>
+        <!-- Education-->
+        <section class="page-section bg-light" id="education">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase">Experience</h2>
+                    <h3 class="section-subheading text-muted"></h3>
+                </div>
+                <div class="row text-center">
+                    <div class="col-md-6">
+                        <h4 class="my-3">Tran Dai Nghia High School for the Gifted</h4>
+                        <h5 class="text-muted">September 2016 - May 2023</h5>
+                    </div>
+                    <div class="col-md-6">
+                        <h4 class="my-3">University of Cincinnati</h4>
+                        <h5 class="text-muted">August 2023 - (Planned) May 2028 </h5>
+                        <p class="text-muted">Primary Coursework: Prog Languages, Comp Structures, Probability & Statistics</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Additional Tasks-->
+        <section class="page-section" id="addtasks">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase">Additional Tasks</h2>
+                    <a href="https://info.flagcounter.com/7qFV">
+                        <img src="https://s01.flagcounter.com/count2/7qFV/bg_FFFFFF/txt_000000/border_CCCCCC/columns_2/maxflags_10/viewers_0/labels_0/pageviews_0/flags_0/percent_0/" alt="Flag Counter" border="0">
+                    </a>
+                    <p class="section-subheading text-muted">Link to Web Application and Hacking Course</p>
+                    <p class="section-subheading text-muted"><a href="https://TranMK.github.io/waph.html">Click here to Access Course Information</a></p>
+                    <div id="digit-clock"></div>
+                    <script>
+                        function displayTime() {
+                            document.getElementById('digit-clock').innerHTML = "Current time: "+ new Date();
+                        }
+                        setInterval(displayTime, 1000);
+                    </script>
+                    <canvas id="analog-clock" width="150" height="150" style="background-color: #999"></canvas>
+                    <script src="https://waph-phung.github.io/clock.js"></script>
+                    <script>
+                        var canvas = document.getElementById("analog-clock")
+                        var ctx = canvas.getContext("2d");
+                        var radius = canvas.height / 2;
+                        ctx.translate(radius, radius);
+                        radius = radius * 0.90
+                        setInterval(drawClock, 1000);
+                        function drawClock(){
+                            drawFace(ctx, radius);
+                            drawNumbers(ctx, radius);
+                            drawTime(ctx, radius);
+                        }
+                    </script>
+                </div>
+            </div>
+        </section>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+        <!-- * *                               SB Forms JS                               * *-->
+        <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
+        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+        <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+    </body>
 </html>
