@@ -2,14 +2,27 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>WAPH-Khoi Tran</title>
+<title>Khoi Tran</title>
 </head>
 <body>
 <div id="container-wrapper">
 <div id="top">
-    <h1>Web Application Programming and Hacking</h1>
-    <h2>Front-end Web Development Lab</h2>
-    <h3>Instructor: Dr. Phu Phung</h3>
+    <h1>KHOI TRAN MINH</h1>
+    <h2>CINCINNATI, OHIO - (513) 258-1542</h2>
+    <div id="email" onclick="showhideEmail()">Show my email</div>
+    <script>
+        var shown = false;
+function showhideEmail() {
+    if(shown){
+        document.getElementById('email').innerHTML="Show my email";
+        shown=false;
+    }else{
+        var myemail = "<a href='mailto:tran2ki"+"@"+"mail.uc.edu' > tran2ki"+"@"+"mail.uc.edu</a>";
+        document.getElementById('email').innerHTML=myemail;
+        shown=true;
+    }
+}
+    </script>
 </div>
 <div id="wrapper">
 <div id="menubar">
