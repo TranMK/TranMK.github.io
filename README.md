@@ -26,6 +26,18 @@ I created a deployable website for my github page by naming the repo "TranMK.git
 
 ## Non-technical requirements (20 pts)
 
-I used Bootstrap framework to implement a theme for my index.html display. The original theme used for my website is (https://startbootstrap.com/theme/agency)[https://startbootstrap.com/theme/agency]. I also implemented a page tracker by detecting the country the IP accessing the site.
+I used Bootstrap framework to implement a theme for my index.html display. The original theme used for my website is (https://startbootstrap.com/theme/agency)[https://startbootstrap.com/theme/agency]. I also implemented a page tracker, FlagCounter by detecting the country the IP accessing the site. (testing for functionality)
 
 ## Technical requirements
+
+### Basic JavaScript Code (20 pts)
+
+jQuery code has already been present in Lab 2's code, so I only needed to copy it over. For the second framework/library, I used React to improve the script as well as adding another functionality, being a manual "Refresh Joke" button instead of having to refresh page or wait for a minute.
+
+### Web APIs integration (20 pts)
+
+I integrated xkcd's website to display his comics onto my page using a simple jQuery's getJSON method.
+
+### JavaScript cookies to remember client (10 pts)
+
+I used document.cookie property of my website to store the last time this website was visited by that IP. If user visits website for the first time, the text on the top of the page would be "Welcome to my homepage for the first time!". Subsequent responses would be "Welcome back! Your last visit was (insert last time this site was visited)".
