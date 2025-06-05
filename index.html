@@ -39,7 +39,7 @@
         <!-- Masthead-->
         <header class="masthead">
             <div class="container">
-                <div class="masthead-subheading">Welcome To My Page!</div>
+                <div class="masthead-subheading" id="welcome-message">Welcome To My Page!</div>
                 <a class="btn btn-primary btn-xl text-uppercase" href="#about">Tell Me More</a>
             </div>
         </header>
@@ -61,14 +61,46 @@
                     </h3>
                     <h3 class="section-heading text-uppercase" style="text-align:center">
                     A programming joke for the day:</h3>
-                    <div id="jokeoftheday"></div>
+                    <div id="jokeoftheminute"></div>
                 </div>
             </div>
+            <!-- Joke fetching and refreshing script using jQuery and React -->
+            <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+            <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+            <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+                <script type="text/babel">
+                    const { useEffect, useState } = React;
+
+                    function JokeApp() {
+                        const [joke, setJoke] = useState("Loading...");
+
+                        const fetchJoke = () => {
+                            // Fetch a joke from the JokeAPI using jQuery
+                            $.get("https://v2.jokeapi.dev/joke/Any", function(result) {
+                                setJoke(result.setup ? `${result.setup} - ${result.delivery}` : result.joke);
+                            });
+                        };
+
+                        useEffect(() => {
+                            fetchJoke(); // On mount
+                            const interval = setInterval(fetchJoke, 60000); // Every 60 seconds
+                            return () => clearInterval(interval); // Cleanup
+                        }, []);
+
+                        return (
+                            <div>
+                                <h3>A programming joke for the day:</h3>
+                                <p>{joke}</p>
+                                <p className="text-muted">Click the button to refresh the joke.</p>
+                                <button onClick={fetchJoke}>Refresh Joke</button>
+                            </div>
+                        );
+                    }
+
+                    ReactDOM.createRoot(document.getElementById('jokeoftheminute')).render(<JokeApp />);
+                </script>
                 <script>
-                    $.get("https://v2.jokeapi.dev/joke/Programming?type=single",function(result) {
-                    // console.log("From jokeAPI: "+JSON.stringify(result));
-                    $("#jokeoftheday").text("A programming joke for the day: " + result.joke)
-                });
+                // Function to show/hide email address
                 var shown = false;
                 function showhideEmail() {
                     if(shown){
@@ -168,6 +200,55 @@
                             drawTime(ctx, radius);
                         }
                     </script>
+                    <div id="xkcd-comic">Loading random XKCD comic...</div>
+                    <script>
+                        $.getJSON("https://xkcd.now.sh/?comic=latest", function(latest) {
+                        const max = latest.num;
+                        const randomNum = Math.floor(Math.random() * max) + 1;
+
+                        $.getJSON(`https://xkcd.now.sh/?comic=${randomNum}`, function(data) {
+                            $('#xkcd-comic').html(
+                                `<h3>${data.title}</h3>
+                                <img src="${data.img}" alt="${data.alt}" style="max-width: 100%; height: auto;">
+                                <p>${data.alt}</p>`
+                            );
+                        });
+                    });
+                    </script>
+                    
+<script>
+    // Helper to set a cookie
+    function setCookie(name, value, days) {
+        const expires = new Date(Date.now() + days * 86400000).toUTCString();
+        document.cookie = `${name}=${encodeURIComponent(value)}; expires=${expires}; path=/`;
+    }
+
+    // Helper to get a cookie
+    function getCookie(name) {
+        const cookies = document.cookie.split('; ');
+        for (const cookie of cookies) {
+            const [key, val] = cookie.split('=');
+            if (key === name) return decodeURIComponent(val);
+        }
+        return null;
+    }
+
+    // Main logic
+    const messageDiv = document.getElementById("welcome-message");
+    const now = new Date().toString();
+    const lastVisit = getCookie("lastVisit");
+
+    if (!lastVisit) {
+        // First visit
+        messageDiv.textContent = "Welcome to my homepage for the first time!";
+    } else {
+        // Returning visit
+        messageDiv.textContent = `Welcome back! Your last visit was ${lastVisit}`;
+    }
+
+    // ⚠️ Always update the cookie *after* reading it
+    setCookie("lastVisit", now, 30);
+</script>
                 </div>
             </div>
         </section>
@@ -178,5 +259,6 @@
         <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
         <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
         <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+        
     </body>
 </html>
