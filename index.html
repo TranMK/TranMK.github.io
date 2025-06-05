@@ -173,9 +173,7 @@
             <div class="container">
                 <div class="text-center">
                     <h2 class="section-heading text-uppercase">Additional Tasks</h2>
-                    <a href="https://info.flagcounter.com/7qFV">
-                        <img src="https://s01.flagcounter.com/count2/7qFV/bg_FFFFFF/txt_000000/border_CCCCCC/columns_2/maxflags_10/viewers_0/labels_0/pageviews_0/flags_0/percent_0/" alt="Flag Counter" border="0">
-                    </a>
+                    <a href="https://info.flagcounter.com/1RnO"><img src="https://s01.flagcounter.com/count2/1RnO/bg_FFFFFF/txt_000000/border_CCCCCC/columns_4/maxflags_20/viewers_0/labels_0/pageviews_0/flags_0/percent_0/" alt="Flag Counter" border="0"></a>
                     <p class="section-subheading text-muted">Link to Web Application and Hacking Course</p>
                     <p class="section-subheading text-muted"><a href="https://TranMK.github.io/waph.html">Click here to Access Course Information</a></p>
                     <div id="digit-clock"></div>
@@ -201,6 +199,7 @@
                         }
                     </script>
                     <div id="xkcd-comic">Loading random XKCD comic...</div>
+                    <div id="disclaimer">Disclaimer: the public/third-party services generate the generated contents above. I am not responsible for its creation.</div>
                     <script>
                         $.getJSON("https://xkcd.now.sh/?comic=latest", function(latest) {
                         const max = latest.num;
@@ -214,41 +213,40 @@
                             );
                         });
                     });
+                    </script>            
+                    <script>
+                        // Helper to set a cookie
+                        function setCookie(name, value, days) {
+                            const expires = new Date(Date.now() + days * 86400000).toUTCString();
+                            document.cookie = `${name}=${encodeURIComponent(value)}; expires=${expires}; path=/`;
+                        }
+
+                        // Helper to get a cookie
+                        function getCookie(name) {
+                            const cookies = document.cookie.split('; ');
+                            for (const cookie of cookies) {
+                                const [key, val] = cookie.split('=');
+                                if (key === name) return decodeURIComponent(val);
+                            }
+                            return null;
+                        }
+
+                        // Main logic
+                        const messageDiv = document.getElementById("welcome-message");
+                        const now = new Date().toString();
+                        const lastVisit = getCookie("lastVisit");
+
+                        if (!lastVisit) {
+                            // First visit
+                            messageDiv.textContent = "Welcome to my homepage for the first time!";
+                        } else {
+                            // Returning visit
+                            messageDiv.textContent = `Welcome back! Your last visit was ${lastVisit}`;
+                        }
+
+                        // ⚠️ Always update the cookie *after* reading it
+                        setCookie("lastVisit", now, 30);
                     </script>
-                    
-<script>
-    // Helper to set a cookie
-    function setCookie(name, value, days) {
-        const expires = new Date(Date.now() + days * 86400000).toUTCString();
-        document.cookie = `${name}=${encodeURIComponent(value)}; expires=${expires}; path=/`;
-    }
-
-    // Helper to get a cookie
-    function getCookie(name) {
-        const cookies = document.cookie.split('; ');
-        for (const cookie of cookies) {
-            const [key, val] = cookie.split('=');
-            if (key === name) return decodeURIComponent(val);
-        }
-        return null;
-    }
-
-    // Main logic
-    const messageDiv = document.getElementById("welcome-message");
-    const now = new Date().toString();
-    const lastVisit = getCookie("lastVisit");
-
-    if (!lastVisit) {
-        // First visit
-        messageDiv.textContent = "Welcome to my homepage for the first time!";
-    } else {
-        // Returning visit
-        messageDiv.textContent = `Welcome back! Your last visit was ${lastVisit}`;
-    }
-
-    // ⚠️ Always update the cookie *after* reading it
-    setCookie("lastVisit", now, 30);
-</script>
                 </div>
             </div>
         </section>
