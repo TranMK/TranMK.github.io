@@ -26,7 +26,7 @@ I created a deployable website for my github page by naming the repo "TranMK.git
 
 ## Non-technical requirements (20 pts)
 
-I used Bootstrap framework to implement a theme for my index.html display. The original theme used for my website is (https://startbootstrap.com/theme/agency)[https://startbootstrap.com/theme/agency]. I also implemented a page tracker, FlagCounter by detecting the country the IP accessing the site. (testing for functionality)
+I used Bootstrap framework to implement a theme for my index.html display. The original theme used for my website is [https://startbootstrap.com/theme/agency](https://startbootstrap.com/theme/agency). I also implemented a page tracker, FlagCounter by detecting the country the IP accessing the site. (testing for functionality)
 
 ## Technical requirements
 
